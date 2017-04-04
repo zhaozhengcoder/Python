@@ -22,21 +22,27 @@ from docopt import docopt
 arguments = docopt(__doc__)
 #print all
 print(arguments)
+print ()
 
 #输出参数
-print (arguments['<from>'])
-print (arguments['<to>'])
-print (arguments['<date>'])
+print ('出发>',arguments['<from>'])
+print ('达到>',arguments['<to>'])
+print ('时间>',arguments['<date>'])
 
-#处理选项
+#处理选项 转换成list的格式
 options=[]
 for key in arguments:
     if arguments[key]==True:
-        print (key)
+        #print (key)
         options.append(key)
 
 #输出选项
-print (">")
+print ("参数 >")
 for x in options:
     print (x)
 
+#处理选项
+sd='d'
+sdd='-'+sd
+if(arguments[sdd]==True):
+    print ('-d in process')
