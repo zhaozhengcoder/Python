@@ -26,9 +26,8 @@ def application(environ,start_response):
         return page_login()
     else:
         return page_default()
-
     return [body.encode('utf-8')]
+
 httpd=make_server('',8100,application)
 print ('serving http on port 8100 ... ')
-
 httpd.serve_forever()
