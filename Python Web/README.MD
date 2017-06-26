@@ -15,3 +15,12 @@
 2. test1-2.py
 
     依然是一个很简单的server，但是可以初步处理一些请求。 比如http://localhost/index ，http://localhost/login ，http://localhost/123 是不一样的界面
+
+3. test2-1.py
+
+    这个使用了web框架flask，使用flask的好处就是简化了url的处理，提高了开发的效率
+
+4. test2-2.py
+
+    这个使用了flask+模板的方法，将python生成的数据和html的静态模板结合起来
+
