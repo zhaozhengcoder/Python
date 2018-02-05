@@ -129,21 +129,78 @@ Out[27]: 2023657465352
 对于可变对象mylist，函数里面的修改不会改变mylist的id，（会改变mylist里面元素的id）。所以在函数外面访问的时候，mylist的id对应的内容已经被修改。所以，对于一个可变对象，在参数传递的时候就像是引用传递一样。
 
 
-#### 3. 对象的浅拷贝和深拷贝 ####
+#### 3. list对象的赋值，浅拷贝和深拷贝 ####
+
+1. 赋值
 ```
 xiaoming = ['will' , 28,["python","js"]]
 
-#
+# 这样赋值，相当于创建一个引用
 lilei =xiaoming
 
-#
-lilei =xiaoming[:]
+# 对其中的一个修改，另一个也会被修改
+lilei[-1].append("edit!")   #修改可变对象
+lilei[1]='edit toos'        #修改不可变对象
+```
+```
+#xiaoming 和 lilei 的id 和里面元素的id 都是完全相同的
 
-#
-lilei = copy.copy(xiaoming)  #浅拷贝
+list id is :  2157348307976
+will  -->  2157349110312
+edit!  -->  2157349110592
+['python', 'c#', 'js', 'edit too !']  -->  2157348309704
+ 
+list id is :  2157348307976
+will  -->  2157349110312
+edit!  -->  2157349110592
+['python', 'c#', 'js', 'edit too !']  -->  2157348309704
+```
 
-#
-lilei = copy.deepcopy(xiaoming)  #深拷贝
+2. 浅拷贝
+```
+# 切片也是浅拷贝
+lilei = xiaoming[:]   # lilei = copy.copy(xiaoming)  #浅拷贝
+lilei[1]="edit!"
+lilei[-1].append('edit too !')
+
+```
+xiaoming 的id输出：
+```
+list id is :  2093415842824
+will  -->  2093416628832
+28  -->  1837913728      #对lilei不可变元素的修改后，xiaoming这里没有改变
+['python', 'c#', 'js', 'edit too !']  -->  2093415824776   #对lilei可变元素的修改后，xiaoming也同样发生了改变
+```
+
+lilei    的id输出：
+```
+list id is :  2093415843400
+will  -->  2093416628832
+edit!  -->  2093416629112   #对lilei不可变元素的修改
+['python', 'c#', 'js', 'edit too !']  -->  2093415824776   #对lilei可变元素的修改
+```
+
+可以看出xiaoming 和 lilei 的id 是不同的，但是里面的元素的id是相同的。
+对lilei 的 可变元素和不可变元素修改了之后，发现xiaoming里面的可变元素也发生了改变，xiaoming里面的不可变元素没有改变。
+
+
+深拷贝
+```
+lilei = copy.deepcopy(xiaoming)   #深拷贝
+```
+```
+#深拷贝解决了这个问题，一个list深拷贝了一个list之后。
+#无论这个list如何修改里面的元素，都不会对另外一个list产生影响。
+
+list id is :  1615732392968
+will  -->  1615733183016
+28  -->  1837913728
+['python', 'c#', 'js']  -->  1615732387592   #注意，和浅拷贝不同，这个里的可变对象的id是不相同的
+ 
+list id is :  1615732392072
+will  -->  1615733183016
+edit!  -->  1615733183296
+['python', 'c#', 'js', 'edit too !']  -->  1615732387080
 ```
 
 

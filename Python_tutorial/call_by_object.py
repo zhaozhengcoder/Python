@@ -8,24 +8,28 @@ def showid(show_list):
 
 
 if __name__=="__main__":
-    will = ["will",28,["python","c#","js"]]
+    xiaoming = ["will",28,["python","c#","js"]]
     
     #test1
-    #wilber = will 
-    #will[1]="hahaha"
-    #will[-1].append('gagaga')
+    lilei = xiaoming 
+    lilei[1]="edit!"
+    lilei[-1].append('edit too !')
 
     #test2
-    wilber = will[:]
-    will[1]="hahaha"
-    will[-1].append('gagaga')
+    #lilei = xiaoming[:]
+    #lilei[1]="edit!"
+    #lilei[-1].append('edit too !')
     
     #test3
-    #wilber = copy.copy(will)
+    #lilei = copy.copy(xiaoming)
+    #lilei[1]="edit!"
+    #lilei[-1].append('edit too !')
 
     #test4
-    #wilber  = copy.deepcopy(will)
+    #lilei = copy.deepcopy(xiaoming)
+    #lilei[1]="edit!"
+    #lilei[-1].append('edit too !')
 
-    showid(will)
-    showid(wilber)
+    showid(xiaoming)
+    showid(lilei)
 
