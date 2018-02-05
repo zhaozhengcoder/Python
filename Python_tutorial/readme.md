@@ -203,6 +203,13 @@ edit!  -->  1615733183296
 ['python', 'c#', 'js', 'edit too !']  -->  1615732387080
 ```
 
+So，小结一些，python关于list的赋值，在开发中好多bug都是由于这个引起的。
+
+1. 如果希望创建一个list的引用，那么可以 list2=list1
+
+2. 如果希望创建一个list2，然后和原来的list1完全相同，修改也不会相互影响，那么一定要使用 list2 =copy.deepcopy(list1)
+
+3. 浅拷贝list 会导致拷贝之后，一个list修改里面的可变对象（list，dict），另外一个list里面的内容也会被修改。
 
 #### 3. new 和 __init__ 魔法函数
 
