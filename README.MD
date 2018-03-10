@@ -1,4 +1,4 @@
-# Python
+﻿# Python
 
 一些好玩的demo，当然语言也有可能不是python
 
@@ -13,7 +13,3 @@
 3. docopt：Python一个优雅的命令行界面
 
     博客链接：http://www.jianshu.com/p/d2c7cbf21931
-
-4. train_tickets ：python 实现的一个火车票查询工具
-
-    博客链接 ：http://www.jianshu.com/p/1b755b0bbebf
